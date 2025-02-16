@@ -7,6 +7,32 @@
     <title>Library</title>
 </head>
 <body>
+    <main>
+        <div class="circles">
+            <div class="circle-1"></div>
+            <div class="circle-2"></div>
+            <div class="circle-3"></div>
+        </div>
+        <h1>Library</h1>
+        <button id="add-book-button">Add a book</button>
+        <div id="book-library"></div>
+        <form id="add-book-form" action="">
+            <legend>Add new book</legend>
+            <div class="input-div">
+                <input type="text" name="author" id="author" placeholder="Author" required maxlength="40">
+                <input type="text" name="title" id="title" placeholder="Title" required maxlength="40">
+                <input type="number" name="pages" id="pages" placeholder="Pages" required min="1">
+            </div>
+
+            <div>
+                <label for="isread">Read it?</label>
+                <input type="checkbox" name="isread" id="is_read">
+            </div>
+            <button id="submit-book-button" type="submit">Submit</button>
+        </form>
+    </main>
+
+
     <script src="./script.js"></script>
 </body>
 </html>
