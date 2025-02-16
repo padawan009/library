@@ -26,59 +26,85 @@ function createBookCard(bookInstance) {
   const bookCard = document.createElement('div');
   bookCard.classList.add('book-library-card');
 
-  const bookCardAuthor = document.createElement('p');
-  bookCardAuthor.textContent = bookInstance.author.charAt(0).toUpperCase() + bookInstance.author.slice(1).toLowerCase();
-  bookCard.appendChild(bookCardAuthor);
-
-  const bookCardTitle = document.createElement('p');
-  bookCardTitle.textContent = bookInstance.title.charAt(0).toUpperCase() + bookInstance.title.slice(1).toLowerCase();
-  bookCard.appendChild(bookCardTitle);
-
-  const bookCardPages = document.createElement('p');
-  bookCardPages.textContent = `Pages: ${bookInstance.pages}`;
-  bookCard.appendChild(bookCardPages);
+  bookCard.appendChild(createBookAuthor(bookInstance.author));
+  bookCard.appendChild(createBookTitle(bookInstance.title));
+  bookCard.appendChild(createBookPages(bookInstance.pages));
 
   const cardButtonsContainer = document.createElement('div');
   bookCard.appendChild(cardButtonsContainer);
 
+  cardButtonsContainer.appendChild(setReadButton(bookInstance.read));
+ 
+  const removeButton = document.createElement('button');
+  removeButton.classList.add('remove-button');
+  removeButton.textContent = 'Remove';
+
+  cardButtonsContainer.appendChild(removeButton);
+
+  removeButton.addEventListener('click', () => {
+    myLibrary.splice(myLibrary.indexOf(bookInstance), 1);
+    bookLibrary.removeChild(bookCard);
+  })
+
+  bookLibrary.appendChild(bookCard);
+
+// readButton.addEventListener('click', () => {
+//   if (readButton.value === true) {
+//     readButton.value = false;
+//     readButton.style.backgroundColor = 'rgba(191, 18, 12, 0.863)';
+//     readButton.textContent = 'Not read';
+//   }
+//   else if (readButton.value === false) {
+//     readButton.value = true;
+//     readButton.style.backgroundColor = 'rgba(24, 202, 89, 0.863)'; 
+//     readButton.textContent = 'Read';
+//   }
+//   createBookCard();
+// })
+  // cardButtonsContainer.appendChild(readButton);
+
+}
+
+
+function createBookAuthor(author) {
+  const bookCardAuthor = document.createElement('p');
+  bookCardAuthor.textContent = author.charAt(0).toUpperCase() + author.slice(1).toLowerCase();
+  return bookCardAuthor;
+}
+
+function createBookTitle(title) {
+  const bookCardTitle = document.createElement('p');
+  bookCardTitle.textContent = title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
+  return bookCardTitle;
+}
+
+function createBookPages(pages) {
+  const bookCardPages = document.createElement('p');
+  bookCardPages.textContent = `Pages: ${pages}`;
+  return bookCardPages;
+}
+
+function setReadButton(read) {
   const readButton = document.createElement('button');
   readButton.classList.add('read-button');
 
-  if (bookInstance.read === true) {
-    readButton.style.backgroundColor = 'rgba(24, 202, 89, 0.863)'; 
+  if (read === true) {
+    readButton.style.backgroundColor = 'rgba(35, 158, 80, 0.86)'; 
     readButton.textContent = 'Read';
   }
   else {
     readButton.textContent = 'Not read';
-    readButton.style.backgroundColor = 'rgba(191, 18, 12, 0.863)';
+    readButton.style.backgroundColor = 'rgba(158, 10, 50, 0.86)';
   }
-readButton.addEventListener('click', () => {
-  if (readButton.value === true) {
-    readButton.value = false;
-    readButton.style.backgroundColor = 'rgba(191, 18, 12, 0.863)';
-    readButton.textContent = 'Not read';
-  }
-  else if (readButton.value === false) {
-    readButton.value = true;
-    readButton.style.backgroundColor = 'rgba(24, 202, 89, 0.863)'; 
-    readButton.textContent = 'Read';
-  }
-  createBookCard();
-})
-  cardButtonsContainer.appendChild(readButton);
-
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('remove-button');
-  removeButton.textContent = 'Remove';
-  cardButtonsContainer.appendChild(removeButton);
-  // removeButton.addEventListener('click', () => {
-  //   myLibrary.splice(myLibrary.indexOf(bookInstance), 1);
-  // })
-
-  bookLibrary.appendChild(bookCard);
-  showLibraryCards();
+  return readButton;
 }
 
+// function removeButton(bookInstance) {
+//   const removeButton = document.createElement('button');
+//   removeButton.classList.add('remove-button');
+//   removeButton.textContent = 'Remove';
+//   return removeButton;
+// }
 
 
 // readButton.addEventListener('click', () => {
