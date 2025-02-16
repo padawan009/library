@@ -4,12 +4,8 @@
 body {
     box-sizing: border-box;
     font-family: 'Tilt Warp', sans-serif;
-    background: radial-gradient(at 60% 70%,rgba(237, 102, 39, 0.841), rgb(130, 19, 54)70%);
-    /* background:
-    linear-gradient(217deg, rgb(112, 9, 35), rgba(172, 8, 8, 0.611) 70.71%),
-    linear-gradient(127deg, rgba(150, 9, 7, 0.8), rgba(0, 255, 0, 0) 70.71%),
-    linear-gradient(330deg,rgba(255, 96, 43, 0.929), rgba(0, 0, 255, 0) 70.71%); */
-    min-height: 100vh;
+    background: radial-gradient(at 60% 45%,rgba(237, 102, 39, 0.841), rgb(130, 19, 54)70%);
+    min-height: 180vh;
     position: relative;
     overflow-x: hidden;
 }
@@ -22,20 +18,39 @@ main {
 
 h1 {
     color: rgb(233, 233, 233);
-    font-size: 80px;
+    font-size: 90px;
     letter-spacing: 0.2rem;
-    margin-left: 30px;
+    margin-left: 40px;
+    margin-top: 20px;
 }
+
+#add-book-button {
+    font-family: 'Tilt Warp', sans-serif;
+    font-size: 2rem;
+    border: none;
+    color: rgba(201, 39, 27, 0.831);
+    border-radius: 30px;
+    padding: 15px 40px;
+    margin: auto;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#add-book-button:hover {
+    transform: scale(110%);
+    transition: transform 0.3s ease-out;
+}
+
+/* Библиотека, создание карточек */
 
 #book-library {
     display: flex;
     justify-content: flex-start;
-    justify-items: flex-start;
     align-items: flex-start;
     margin-right: auto;
-    margin-left: 30px;
+    margin-left: 90px;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 35px;
 }
 
 .book-library-card {
@@ -53,6 +68,8 @@ h1 {
     justify-content: center;
     text-align: center;
     font-size: 1rem;
+    align-self: flex-start;
+    margin: 0;
 }
 
 .book-library-card div {
@@ -78,6 +95,8 @@ p {
     transition: all 0.5s ease-in-out;
 }
 
+/*  Форма для заполнения  */
+
 #add-book-form {
     color: rgb(75, 75, 75);
     display: flex;
@@ -95,16 +114,15 @@ p {
     opacity: 0;
     transition: opacity 2s ease-out;
     position: absolute;
-    top: 40%;
-    left: 41.7%;
+    top: 380px;
+    left: 785px;
 }
 
 #add-book-form.show {
     display: flex;
     opacity: 1;
-    box-shadow: 0 0 0 9999px rgba(0,0,0, 0.3);
+    box-shadow: 0 0 0 9999px rgba(0,0,0, 0.5);
 }
-
 
 .input-div input {
     width: 200px;
@@ -130,22 +148,25 @@ p {
     background-color: rgba(255, 207, 86, 0.863);
 }
 
-#add-book-button {
-    font-family: 'Tilt Warp', sans-serif;
-    font-size: 2rem;
+.close-form {
+    position: absolute;
+    top: 5%;
+    right: 7%;
+    color: grey;
+    font-size: 0.8rem;
     border: none;
-    color: rgba(201, 39, 27, 0.831);
-    border-radius: 30px;
-    padding: 15px 40px;
-    margin: auto;
-    margin-top: 10px;
+    background-color: transparent;
     cursor: pointer;
 }
 
-#add-book-button:hover {
-    transform: scale(110%);
-    transition: transform 0.3s ease-out;
+.close-form:hover {
+    transform: scale(130%);
+    transition: transform 0.3s ease-in-out;
 }
+
+
+/* Дизайн фона: движущиеся круги */
+
 
 .circles div {
     border-radius: 100%;
