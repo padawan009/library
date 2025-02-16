@@ -43,6 +43,7 @@ function addBookToLibrary(author, title, pages, read) {
   myLibrary.push(bookInstance);
   addBookForm.reset();
   createBookCard(bookInstance);
+  // console.log(myLibrary);
 }
 
 function createBookCard(bookInstance) {
@@ -62,8 +63,8 @@ function createBookCard(bookInstance) {
   readButton.addEventListener('click', () => {
     bookInstance.read = !bookInstance.read;
     setReadButtonStyle(readButton, bookInstance.read);
-    console.log(bookInstance);
-    console.log(myLibrary);
+    // console.log(bookInstance);
+    // console.table(myLibrary);
   });
 
   const removeButton = createRemoveButton();
@@ -72,9 +73,11 @@ function createBookCard(bookInstance) {
   removeButton.addEventListener('click', () => {
     myLibrary.splice(myLibrary.indexOf(bookInstance), 1);
     bookLibrary.removeChild(bookCard);
+    // console.table(myLibrary);
   })
 
   bookLibrary.appendChild(bookCard);
+  // console.table(myLibrary);
 }
 
 function createBookAuthor(author) {

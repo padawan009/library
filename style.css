@@ -22,6 +22,7 @@ h1 {
     letter-spacing: 0.2rem;
     margin-left: 40px;
     margin-top: 20px;
+    text-shadow: 0px 0px 10px rgb(74, 74, 74);
 }
 
 #add-book-button {
@@ -34,11 +35,12 @@ h1 {
     margin: auto;
     margin-top: 10px;
     cursor: pointer;
+    transition: transform 0.3s ease-out;
 }
 
 #add-book-button:hover {
     transform: scale(110%);
-    transition: transform 0.3s ease-out;
+
 }
 
 /* Библиотека, создание карточек */
@@ -157,11 +159,12 @@ p {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    transition: transform 0.4s ease-in-out;
 }
 
 .close-form:hover {
-    transform: scale(130%);
-    transition: transform 0.3s ease-in-out;
+    transform: scale(150%);
+
 }
 
 
