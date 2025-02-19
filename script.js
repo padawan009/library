@@ -41,8 +41,8 @@ function Book(author, title, pages, read) {
 function addBookToLibrary(author, title, pages, read) {
   let bookInstance = new Book(author, title, pages, read);
   myLibrary.push(bookInstance);
-  addBookForm.reset();
   createBookCard(bookInstance);
+  addBookForm.reset();
   // console.log(myLibrary);
 }
 
